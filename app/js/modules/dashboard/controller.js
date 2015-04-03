@@ -10,6 +10,8 @@
 	DashboardView
 ) {
 
+    "use strict";
+
     var Controller = Controller.extend({
 
         init: function () {
@@ -19,14 +21,14 @@
 
        
         events: function (args) {
-           
+
             return this;
         },
 
         dashboard: function () {
             var self = this,
-                view = new DashboardView({ el: Constants.CONTENT });
-            view.clear(self).render();
+                view = new DashboardView({ controller : self, el: Constants.CONTENT });
+                view.clear().render();
         }
     });
 

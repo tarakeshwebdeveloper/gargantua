@@ -10,6 +10,8 @@
 	ShellView
 ) {
 
+    "use strict";
+
     var Controller = Controller.extend({
 
         init: function () {
@@ -19,14 +21,16 @@
 
        
         events: function (args) {
-           
+            var self = this;
+
+            //self.listenTo(self,"shell:test", function(args){console.log("shell trigger success")});
             return this;
         },
 
         shell: function () {
             var self = this,
-                view = new ShellView({ el: Constants.SIDEBAR });
-            view.clear(self).render();
+                view = new ShellView({ controller : self, el: Constants.SIDEBAR });
+                view.clear().render();
         }
     });
 

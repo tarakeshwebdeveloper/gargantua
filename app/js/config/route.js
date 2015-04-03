@@ -118,7 +118,7 @@ define([
                 if (!self.controllers.hasOwnProperty(name)) {
                     controller.get().then(function (Ctrl) {
                         self.controllers[name] = new Ctrl()
-                                                .setup()
+                                                .setup(name)
                                                 .events()
                                                 .executeView(view, params);
                         if (callback) callback();

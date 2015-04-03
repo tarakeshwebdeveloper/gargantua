@@ -2,16 +2,14 @@ define(["jquery", "backbone"], function ($, Backbone) {
 
     "use strict";
 
+
     var View = Backbone.View.extend({
 
-        clear: function (ctrl) {
+        clear: function () {
             var self = this;
-            this.undelegateEvents();
-            this.$el.unbind();
-            this.delegateEvents();
-            if (ctrl) {
-                this.controller = ctrl;
-            }
+            self.undelegateEvents();
+            self.$el.unbind();
+            self.delegateEvents();
             return this;
         }
     });

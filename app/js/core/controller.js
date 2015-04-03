@@ -12,15 +12,16 @@ define([
 
         var controller = Chain.Base.extend({
 
-            setup: function () {
+            setup: function (name) {
                 _.extend(this, Backbone.Events);
+                this.name = name;
                 return this;
             },
 
             executeView: function (viewName, params) {
                 var self = this;
 
-                console.log("Controller has view (" + viewName + "):" + (typeof self[viewName] != undefined));
+                console.log(self.name +" controller has view (" + viewName + "):" + (typeof self[viewName] != undefined));
                 if (typeof self[viewName] != "undefined") {
                     delete self[viewName];
                     self[viewName].call(this, params);
